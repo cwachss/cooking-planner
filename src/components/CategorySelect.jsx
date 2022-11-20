@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getRecipe } from "../api/getRecipe";
 
-export const CategorySelect = (props) => {
+export const CategorySelect = ({menus}) => {
   const [edit, setEdit] = useState();
   const [title, setTitle] = useState("");
 
@@ -16,24 +16,24 @@ export const CategorySelect = (props) => {
   ];
 
   return (
-    <div className="rounded bg-[#287880] text-gray-200 p-6">
+    <div className="rounded border border-[#54c1cd] text-gray-800 p-6">
       {edit && (
         <div className="flex">
           <input
-            className="bg-white w-full text-gray-700"
+            className="bg-white border border-gray-400 w-full text-gray-700 rounded-l"
             onChange={(e) => setTitle(e.target.value)}
             value={title}
           />
           <button
             onClick={() => setEdit(false)}
-            className="text-xs rounded bg-[#fc8329] text-white px-2"
+            className="text-xs rounded-r bg-[#fc8329] text-white px-2"
           >
             Done
           </button>
         </div>
       )}
       {!edit && (
-        <h1>
+        <h1 className="w-[225px] flex justify-between">
           {title || "Meal"}{" "}
           <button
             onClick={() => setEdit(true)}
@@ -43,7 +43,7 @@ export const CategorySelect = (props) => {
           </button>
         </h1>
       )}
-      <ul className="list-style-none accent-[#ffa868]">
+      <ul className="mt-2 list-style-none accent-[#ffa868]">
         {categories.map((i, index) => {
           return (
             <li key={index}>

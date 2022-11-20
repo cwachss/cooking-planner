@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { getRecipe } from "./api/getRecipe";
 
 function App() {
-  const [menus, setMenus] = useState([{ category: "Chicken" }]);
+  const [menus, setMenus] = useState([]);
 
   useEffect(() => {
     getRecipe().then((resp) => console.log(resp))
@@ -15,7 +15,7 @@ function App() {
 
   return (
     <div className="App">
-      {/* <SelectSection menus={menus} setMenus={setMenus} /> */}
+      <SelectSection menus={menus} setMenus={setMenus} />
       <MenuSection menus={menus} />
       {/* <CookingSection /> */}
     </div>
