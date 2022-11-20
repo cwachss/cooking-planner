@@ -8,16 +8,23 @@ import { getRecipe } from "./api/getRecipe";
 
 function App() {
   const [menus, setMenus] = useState([]);
-  const [submit, setSubmit] = useState();
+  const [finalMenu, setFinalMenu] = useState([]);
 
   useEffect(() => {
-    getRecipe().then((resp) => setMenus(JSON.stringify(resp)));
+    getRecipe().then((response) => {
+      setMenus(JSON.stringify(response));
+      setFinalMenu([]);
+    });
   }, []);
+
+  useEffect(() => {
+    setFinalMenu(menus);
+  }, [menus]);
 
   return (
     <div className="App">
       <SelectSection menus={menus} setMenus={setMenus} setSubmit={setSubmit} />
-      <MenuSection menus={menus} />
+      <MenuSection menus={finalMenu} />
       {/* <CookingSection /> */}
     </div>
   );
