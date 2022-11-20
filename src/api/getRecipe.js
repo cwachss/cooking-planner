@@ -30,7 +30,7 @@ export const getRecipe = async () => {
         result: {
             name: "Chicken Soup",
             prepTime: "30 minutes",
-            cookTime: "1 hour 30 minutes",
+            cookTime: 90,
             ingredients: [
                 {
                     name: "chicken thighs",
