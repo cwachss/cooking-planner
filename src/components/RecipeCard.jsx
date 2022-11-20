@@ -2,7 +2,7 @@ import React, { useState } from "react";
 // import { ReactDOM } from "react";
 // import { MealSection } from './MealSection';
 
-export const RecipeCard = (props) => {
+export const RecipeCard = (recipe) => {
   const [open, setOpen] = useState(false);
   return (
     <>
@@ -21,7 +21,18 @@ export const RecipeCard = (props) => {
             >
               &times;
             </button>
-            <h3 className="text-xl">Recipe Name</h3>
+            <h3 className="text-xl">{recipe.name}</h3>
+            <ul className="marker-number">
+              {recipe.ingredients.map((i) => (
+                <li>{i}</li>
+              ))}
+            </ul>
+            <h5>Instructions</h5>
+            <ul className="marker-number">
+              {recipe.instructions.map((i) => (
+                <li>{i}</li>
+              ))}
+            </ul>
           </div>
         </div>
       )}
