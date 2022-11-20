@@ -1,11 +1,13 @@
 import logo from './logo.svg';
-import './App.css';
-import { Hi } from './components/hi';
+import './output.css';
+import { SelectSection } from './components/SelectSection';
+import { MenuSection } from './components/MenuSection';
 
 function App() {
   return (
     <div className="App">
-      <Hi></Hi>
+      <SelectSection />
+      <MenuSection/>
     </div>
   );
 }
