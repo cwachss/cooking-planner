@@ -3,10 +3,12 @@ import { CategorySelect } from "./CategorySelect";
 
 export const SelectSection = ({ menus, setMenus }) => {
   const [count, setCount] = useState(1);
+  const [menuCategories, setCategories] = useState([]);
 
   function submit() {
-    console.log();
+    setMenus(menus.filter((menu) => menuCategories.includes(menu.category)));
   }
+
   return (
     <section className="m-6 p-6 ">
       <h2 className="text-2xl text-gray-800">
@@ -15,7 +17,13 @@ export const SelectSection = ({ menus, setMenus }) => {
       </h2>
       <div className="mt-2 flex gap-6">
         {Array.apply(null, Array(count)).map((i) => {
-          return <CategorySelect id={i}></CategorySelect>;
+          return (
+            <CategorySelect
+              id={i}
+              setCategories={setCategories}
+              menuCategories={menuCategories}
+            ></CategorySelect>
+          );
         })}
         <div className="flex flex-col justify-between items-stretch">
           <button

@@ -3,11 +3,7 @@ import { getRecipe } from "../api/getRecipe";
 
 export const CategorySelect = (props, { menus, setMenus }) => {
   const [checked, setChecked] = useState();
-  const [menuCategories, setCategories] = useState([]);
-
-  useEffect(() => {
-    
-  }, [menuCategories]);
+ 
 
   const categories = [
     "Appetizer",
@@ -19,9 +15,7 @@ export const CategorySelect = (props, { menus, setMenus }) => {
     "Dessert",
   ];
 
-  function handleSubmit() {
-    setMenus(menus.filter((menu) => menuCategories.includes(menu.category)));
-  }
+
 
   return (
     <div className="rounded bg-[#287880] text-gray-200 p-6">
@@ -40,7 +34,7 @@ export const CategorySelect = (props, { menus, setMenus }) => {
                   type="checkbox"
                   name=""
                   id=""
-                  onChange={() => setCategories(...menuCategories, i)}
+                  onChange={() => props.setCategories(...props.menuCategories, i)}
                 />{" "}
                 {i}
               </label>
