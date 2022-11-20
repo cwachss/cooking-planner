@@ -1,16 +1,70 @@
-const jsdom = require("jsdom");
-const { JSDOM } = jsdom;
+import { corsSimpleRequests } from '../cors';
 
-const dom = new JSDOM(``, {
-    url: "https://allrecipes.com/recipe/282681/lace-cookies-florentine-cookies/",
-    referrer: "https://allrecipes.com/recipe/282681/lace-cookies-florentine-cookies/",
+const axios = require('axios').default;
 
-    contentType: "text/html",
-    includeNodeLocations: true,
-    storageQuota: 10000000
-  });
+export const getRecipe = async () => {
+        
+    const options = {
+        method: 'GET',
+        url: 'https://api.edamam.com/api/recipes/v2',
+        params: {app_id: '7da57a27',
+        app_key: '7fdd3f94fc77d889a65e32d26c82bb1d',
+        random: true
+    },
+        headers: {
+          'content-type': 'Application/json'
+        }
+      };
+      
+      const resp = await axios.request(options).then(function (response) {
+          console.log(response.data);
+          //setRecipe(JSON.stringify(response.data.results[0].display))
+          //return JSON.stringify(response.data.results[0].display)
 
-export const getRecipe = () => {
-    return JSON.stringify(dom)
+      }).catch(function (error) {
+        //return ''
+          console.error(error);
+      });
+
+      const fakeData = {
+        result: {
+            name: "Chicken Soup",
+            prepTime: "30 minutes",
+            cookTime: "1 hour 30 minutes",
+            ingredients: [
+                {
+                    name: "chicken thighs",
+                    amount: "4"
+                },
+                {
+                    name: "rosemary",
+                    amount: "4 tsp"
+                },
+                {
+                    name: "Olive Oil",
+                    amount: "2 tbsp"
+                }
+            ],
+            instructions: [
+                {
+                    text: "do this one"
+                },
+                {
+                    text: "do that two"
+                },
+                {
+                    text: "do three"
+                },
+                {
+                    text: "do four"
+                },
+            ]
+        }
+      }
+
+      
+   
+      return fakeData
 }
+
 
