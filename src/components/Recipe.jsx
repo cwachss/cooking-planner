@@ -6,8 +6,6 @@ const axios = require('axios').default;
 
 export const Recipe = ()  => {
 
-    const recipeUrl = 'https://tasty.p.rapidapi.com/recipes/auto-complete'
-    const kosherUrl = 'https://www.kosher.com/recipe/5-minute-yummy-chicken-2701'
     
     const [recipe, setRecipe] = useState('')
 
@@ -17,7 +15,7 @@ export const Recipe = ()  => {
         getRecipe().then((res, err) => {
             
             setRecipe(JSON.stringify(res))
-            console.log(err)
+            console.log(res)
         })
     }, []) //only call getRecipe() on the first reder because we don't want to get rate-limited
     
