@@ -8,9 +8,11 @@ import MenuProvider from "./components/MenuContext";
 function App() {
   return (
     <div className="App">
-      <SelectSection />
-      <MenuSection/>
-      <CookingSection />
+      <MenuProvider>
+        <SelectSection />
+        <MenuSection />
+        {/* <CookingSection /> */}
+      </MenuProvider>
     </div>
   );
 }

@@ -1,6 +1,8 @@
 import React from "react";
+import { useMenuContext } from "./MenuContext";
 
 export const CategorySelect = (props) => {
+  const { menus, setMenus } = useMenuContext();
   const categories = [
     "Appetizer",
     "Salad",
@@ -22,7 +24,9 @@ export const CategorySelect = (props) => {
         {categories.map((i) => {
           return (
             <li>
-              <label><input type="checkbox" name="" id="" /> {i}</label>
+              <label>
+                <input type="checkbox" name="" id="" /> {i}
+              </label>
             </li>
           );
         })}
