@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { CategorySelect } from "./CategorySelect";
 
-export const SelectSection = ({ menus, setMenus }) => {
+export const SelectSection = ({ menus, setMenus, setSubmit }) => {
   const [count, setCount] = useState(1);
   const [menuCategories, setCategories] = useState([]);
 
