@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { getRecipe } from "../api/getRecipe";
 
-export const CategorySelect = (props) => {
+export const CategorySelect = (props, { menus, setMenus }) => {
   const [checked, setChecked] = useState();
+  const [menuCategories, setCategories] = useState([]);
+
+  useEffect(() => {
+    
+  }, [menuCategories]);
 
   const categories = [
     "Appetizer",
@@ -13,6 +18,10 @@ export const CategorySelect = (props) => {
     "Chicken",
     "Dessert",
   ];
+
+  function handleSubmit() {
+    setMenus(menus.filter((menu) => menuCategories.includes(menu.category)));
+  }
 
   return (
     <div className="rounded bg-[#287880] text-gray-200 p-6">
@@ -31,7 +40,7 @@ export const CategorySelect = (props) => {
                   type="checkbox"
                   name=""
                   id=""
-                  onChange={() => { }}
+                  onChange={() => setCategories(...menuCategories, i)}
                 />{" "}
                 {i}
               </label>
