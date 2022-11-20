@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getRecipe } from "../api/getRecipe";
 
-export const CategorySelect = (props) => {
+export const CategorySelect = (props, { menus, setMenus }) => {
   const [checked, setChecked] = useState();
 
   const categories = [
@@ -15,7 +15,7 @@ export const CategorySelect = (props) => {
   ];
 
   return (
-    <div className="rounded bg-[#287880] text-gray-200 p-6">
+    <div className="rounded border border-[#287880] text-gray-800 p-6">
       <h1>
         {props.title}{" "}
         <button className="text-xs rounded bg-[#fc8329] text-white px-2">
@@ -31,7 +31,9 @@ export const CategorySelect = (props) => {
                   type="checkbox"
                   name=""
                   id=""
-                  onChange={() => { }}
+                  onChange={() =>
+                    props.setCategories(...props.menuCategories, i)
+                  }
                 />{" "}
                 {i}
               </label>
