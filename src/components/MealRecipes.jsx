@@ -11,7 +11,7 @@ export const MealRecipes = ({menu}) => {
       {menu.recipes.map((r,i) => (
         <div key={i} className="bg-gray-100 rounded flex items-baseline gap-2 px-4 py-2 my-2">
           {r.name} <small className="text-gray-700">{r.time}</small>
-          <RecipeCard recipe={r.result}></RecipeCard>
+          <RecipeCard recipe={r}></RecipeCard>
         </div>
       ))}
     </div>
