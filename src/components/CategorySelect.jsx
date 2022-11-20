@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { getRecipe } from "../api/getRecipe";
 import { useMenuContext } from "./MenuContext";
 
 export const CategorySelect = (props) => {
   const { menus, setMenus } = useMenuContext();
+  const [checked, setChecked] = useState();
   const categories = [
     "Appetizer",
     "Salad",
@@ -12,6 +14,18 @@ export const CategorySelect = (props) => {
     "Chicken",
     "Dessert",
   ];
+
+  useEffect(() => {
+    getRecipe().then((response) => {
+      setMenus(response);
+    });
+  }, []);
+  const createMenu = (menuTitle) => {
+    setMenus(menus.push({ name: menuTitle }));
+  };
+
+  const addRecipe = () => {};
+
   return (
     <div className="rounded bg-[#287880] text-gray-200 p-6">
       <h1>
@@ -25,7 +39,13 @@ export const CategorySelect = (props) => {
           return (
             <li>
               <label>
-                <input type="checkbox" name="" id="" /> {i}
+                <input
+                  type="checkbox"
+                  name=""
+                  id=""
+                  onChange={() => addRecipe()}
+                />{" "}
+                {i}
               </label>
             </li>
           );
