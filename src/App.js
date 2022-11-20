@@ -7,6 +7,7 @@ import { useState } from "react";
 
 function App() {
   const [menus, setMenus] = useState();
+  
   return (
     <div className="App">
       <SelectSection menus={menus} setMenus={setMenus} />
