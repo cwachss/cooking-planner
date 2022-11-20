@@ -19,8 +19,8 @@ export const getRecipes = async (tag) => {
         url: 'https://tasty.p.rapidapi.com/recipes/list',
         params: {from: '0', size: '1', tags: tag},
         headers: {
-          'X-RapidAPI-Key': 'b11b26eb74mshc1689e69717c923p108c44jsn489151bf0397',
-          'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
+            'X-RapidAPI-Key': 'aa67783fdemsh44896d9ee36aa05p1453f2jsna0eec24ddb05',
+            'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
         }
       };
       
