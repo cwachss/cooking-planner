@@ -71,7 +71,8 @@ export const getRecipe = async () => {
 
         }
     }))
-    return recipe
+    const fakeData = fakeRecipes
+    return fakeData
 }
 
 
