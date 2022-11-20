@@ -21,16 +21,17 @@ export const RecipeCard = ({recipe}) => {
             >
               &times;
             </button>
-            <h3 className="text-xl">{recipe.name}</h3>
-            <ul className="marker-number">
+            <h3 className="text-xl text-lg font-bold">{recipe.name}</h3>
+            <h5 className="text-lg font-semibold mt-6">Ingredients</h5>
+<ul className="list-decimal p-4">
               {recipe.ingredients.map((i, index) => (
-                <li key={index}>{i}</li>
+                <li key={index}>{i.name}</li>
               ))}
             </ul>
-            <h5>Instructions</h5>
-            <ul className="marker-number">
+            <h5 className="text-lg font-semibold">Instructions</h5>
+            <ul className="list-decimal p-4">
               {recipe.instructions.map((i, index) => (
-                <li key={index}>{i}</li>
+                <li key={index}>{i.text}</li>
               ))}
             </ul>
           </div>
