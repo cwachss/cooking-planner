@@ -7,11 +7,11 @@ import { useEffect, useState } from "react";
 import { getRecipe } from "./api/getRecipe";
 
 function App() {
-  const [menus, setMenus] = useState([{ category: "Chicken" }]);
+  const [menus, setMenus] = useState([]);
 
   useEffect(() => {
-    getRecipe().then((resp) => console.log(resp))
-  }, [menus]);
+    getRecipe().then((resp) => setMenus(resp));
+  }, []);
 
   return (
     <div className="App">
