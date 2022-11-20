@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { getRecipe } from "../api/getRecipe";
-import { useMenuContext } from "./MenuContext";
 
 export const CategorySelect = (props) => {
   const [checked, setChecked] = useState();
@@ -24,9 +23,9 @@ export const CategorySelect = (props) => {
         </button>
       </h1>
       <ul className="list-style-none accent-[#ffa868]">
-        {categories.map((i) => {
+        {categories.map((i, index) => {
           return (
-            <li>
+            <li key={index}>
               <label>
                 <input
                   type="checkbox"
