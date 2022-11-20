@@ -4,12 +4,13 @@ import { SelectSection } from "./components/SelectSection";
 import { MenuSection } from "./components/MenuSection";
 // import { CookingSection } from "./components/CookingSection";
 import { useEffect, useState } from "react";
+import { getRecipe } from "./api/getRecipe";
 
 function App() {
   const [menus, setMenus] = useState([{ category: "Chicken" }]);
 
   useEffect(() => {
-    console.log(menus);
+    getRecipe().then((resp) => console.log(resp))
   }, [menus]);
 
   return (
