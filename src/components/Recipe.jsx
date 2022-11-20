@@ -9,7 +9,6 @@ export const Recipe = ()  => {
     
     const [recipe, setRecipe] = useState('')
 
-    
 
     useEffect(() => {
         getRecipe().then((res, err) => {

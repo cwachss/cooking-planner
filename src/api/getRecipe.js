@@ -2,11 +2,11 @@ import { fakeRecipes } from './fakeRecipes';
 const axios = require('axios').default;
 
 export const categories = {
-    appetizers: 'appetizers',
-    chicken: 'frank_s_chicken_bites',
-    meat:'one_top_app_meat',
-    veggies:'one_top_app_veggies',
     sides: 'one_top_app_sides',
+    appetizers: 'appetizers',
+    veggies:'one_top_app_veggies',
+    meat:'one_top_app_meat',
+    chicken: 'frank_s_chicken_bites',
     dessert:'shoppable_recipes_desserts',
 }
 
@@ -17,7 +17,7 @@ export const getRecipes = async (tag) => {
     const options = {
         method: 'GET',
         url: 'https://tasty.p.rapidapi.com/recipes/list',
-        params: {from: '0', size: '20', tags: tag},
+        params: {from: '0', size: '1', tags: tag},
         headers: {
           'X-RapidAPI-Key': 'b11b26eb74mshc1689e69717c923p108c44jsn489151bf0397',
           'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
@@ -32,19 +32,24 @@ export const getRecipes = async (tag) => {
           return error
       });
 
-      
    return data
 }
 
 
 export const getRecipe = async () => {
     //'under_30_minutes'
-    
-    const recipesData = await getRecipes(categories.meat)    
+    const sides = await getRecipes(categories.sides)  
+    const appetizers = await getRecipes(categories.appetizers) 
+    const veggies = await getRecipes(categories.veggies) 
+    const meat = await getRecipes(categories.meat) 
+    const chicken = await getRecipes(categories.chicken) 
+    const dessert = await getRecipes(categories.dessert) 
+
+    const recipesData = [sides, appetizers, veggies, meat, chicken, dessert]  
     //const recipesData = fakeRecipes
-    const recipes = recipesData.results.map(fakeRecipe => {
+    const recipe = recipesData.map((recipeData, index) => recipeData.results.map(fakeRecipe => {
         return {
-            category: fakeRecipe.tags[0].name,
+            category: Object.keys(categories)[index],
             name: fakeRecipe.name,
             cookTime: fakeRecipe.cook_time_minutes,
             prepTime: fakeRecipe.prep_time_minutes,
@@ -65,9 +70,8 @@ export const getRecipe = async () => {
             })
 
         }
-    })
-    
-    return recipes
+    }))
+    return recipe
 }
 
 
