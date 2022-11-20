@@ -19,7 +19,7 @@ export const CategorySelect = (props) => {
       {edit && (
         <div className="flex">
           <input
-            className="bg-white border border-gray-400 w-full text-gray-700 rounded-l"
+            className="bg-white border border-gray-400 w-full text-gray-700 rounded-l mr-1 p-1"
             onChange={(e) => setTitle(e.target.value)}
             value={title}
           />

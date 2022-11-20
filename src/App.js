@@ -10,7 +10,7 @@ function App() {
   const [menus, setMenus] = useState([]);
 
   useEffect(() => {
-    getRecipe().then((resp) => setMenus(resp));
+    //getRecipe().then((resp) => setMenus(resp));
   }, []);
 
   return (
