@@ -21,14 +21,14 @@ export const RecipeCard = ({recipe}) => {
             >
               &times;
             </button>
-            <h3 className="text-xl text-lg font-bold">{recipe.name}</h3>
-            <h5 className="text-lg font-semibold mt-6">Ingredients</h5>
+            <h3 className="text-xl text-lg font-bold text-[#287880]">{recipe.name}</h3>
+            <h5 className="text-lg font-semibold mt-6 underline decoration-[#287880]">Ingredients</h5>
 <ul className="list-decimal p-4">
               {recipe.ingredients.map((i, index) => (
                 <li key={index}>{i.name}</li>
               ))}
             </ul>
-            <h5 className="text-lg font-semibold">Instructions</h5>
+            <h5 className="text-lg font-semibold underline decoration-[#287880]">Instructions</h5>
             <ul className="list-decimal p-4">
               {recipe.instructions.map((i, index) => (
                 <li key={index}>{i.text}</li>

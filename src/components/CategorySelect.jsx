@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { getRecipe } from "../api/getRecipe";
 
-export const CategorySelect = (props, { menus, setMenus }) => {
-  const [checked, setChecked] = useState();
+export const CategorySelect = (props) => {
+  const [edit, setEdit] = useState();
+  const [title, setTitle] = useState("");
 
   const categories = [
     "Appetizer",
@@ -15,13 +16,33 @@ export const CategorySelect = (props, { menus, setMenus }) => {
   ];
 
   return (
-    <div className="rounded border border-[#287880] text-gray-800 p-6">
-      <h1>
-        {props.title}{" "}
-        <button className="text-xs rounded bg-[#fc8329] text-white px-2">
-          Edit name
-        </button>
-      </h1>
+    <div className="rounded bg-[#287880] text-gray-200 p-6">
+      {edit && (
+        <div className="flex">
+          <input
+            className="bg-white w-full text-gray-700"
+            onChange={(e) => setTitle(e.target.value)}
+            value={title}
+          />
+          <button
+            onClick={() => setEdit(false)}
+            className="text-xs rounded bg-[#fc8329] text-white px-2"
+          >
+            Done
+          </button>
+        </div>
+      )}
+      {!edit && (
+        <h1>
+          {title || "Meal"}{" "}
+          <button
+            onClick={() => setEdit(true)}
+            className="text-xs rounded bg-[#fc8329] text-white px-2"
+          >
+            Edit name
+          </button>
+        </h1>
+      )}
       <ul className="list-style-none accent-[#ffa868]">
         {categories.map((i, index) => {
           return (
