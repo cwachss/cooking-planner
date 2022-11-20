@@ -1,14 +1,4 @@
-import React, { ReactNode, useContext, useRef, useState } from "react";
-import ReactPlayer from "react-player";
-import useLocalStorage from "../../hooks/useLocalStorage";
-import { Lecture } from "../../types/lecture";
-import {
-  Breadcrumb,
-  Category,
-  ContentType,
-  LectureContext,
-  PlaybackRate,
-} from "../../types/LectureContext";
+import React, {  useContext,  useState } from "react";
 
 const MenuContext = React.createContext();
 

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { RecipeCard } from "./RecipeCard";
 
 export const MealRecipes = (menu) => {
+  const [totalTime, setTime] = useState()
   return (
     <div className="rounded bg-[#54c1cd] p-6">
       <h1>{menu.title} <small>Total time: {totalTime}</small></h1>
