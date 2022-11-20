@@ -6,8 +6,7 @@ export const CategorySelect = (props, { menus, setMenus }) => {
 
   const categories = [
     "Appetizer",
-    "Salad",
-    "Soup",
+    "Veggies",
     "Side",
     "Meat",
     "Chicken",
@@ -15,14 +14,14 @@ export const CategorySelect = (props, { menus, setMenus }) => {
   ];
 
   return (
-    <div className="rounded border border-[#287880] text-gray-800 p-6">
+    <div className="rounded border border-[#54c1cd] text-gray-800 p-4">
       <h1>
         {props.title}{" "}
         <button className="text-xs rounded bg-[#fc8329] text-white px-2">
           Edit name
         </button>
       </h1>
-      <ul className="list-style-none accent-[#ffa868]">
+      <ul className="list-style-none accent-[#ffa868] my-2">
         {categories.map((i, index) => {
           return (
             <li key={index}>

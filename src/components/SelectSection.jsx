@@ -11,9 +11,9 @@ export const SelectSection = ({ menus, setMenus }) => {
 
   return (
     <section className="m-6 p-6 ">
-      <h2 className="text-2xl text-gray-800">
+      <h2 className="text-2xl text-gray-800 my-6">
         Menu Planner
-        <p>Select desired courses for each meal</p>
+        <p className="text-lg">Select desired courses for each meal</p>
       </h2>
       <div className="mt-2 flex gap-6">
         {Array.apply(null, Array(count)).map((i) => {
