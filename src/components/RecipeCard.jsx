@@ -2,7 +2,7 @@ import React, { useState } from "react";
 // import { ReactDOM } from "react";
 // import { MealSection } from './MealSection';
 
-export const RecipeCard = (recipe) => {
+export const RecipeCard = ({recipe}) => {
   const [open, setOpen] = useState(false);
   return (
     <>
@@ -23,14 +23,14 @@ export const RecipeCard = (recipe) => {
             </button>
             <h3 className="text-xl">{recipe.name}</h3>
             <ul className="marker-number">
-              {recipe.ingredients.map((i) => (
-                <li>{i}</li>
+              {recipe.ingredients.map((i, index) => (
+                <li key={index}>{i}</li>
               ))}
             </ul>
             <h5>Instructions</h5>
             <ul className="marker-number">
-              {recipe.instructions.map((i) => (
-                <li>{i}</li>
+              {recipe.instructions.map((i, index) => (
+                <li key={index}>{i}</li>
               ))}
             </ul>
           </div>

@@ -12,8 +12,8 @@ export const SelectSection = (props) => {
         <p>Select desired courses for each meal</p>
       </h2>
       <div className="mt-2 flex gap-6">
-        {Array.apply(null, Array(count)).map((i) => {
-          return <CategorySelect id={i}></CategorySelect>;
+        {Array.apply(null, Array(count)).map((i, index) => {
+          return <CategorySelect key={index} id={i}></CategorySelect>;
         })}
         <div className="flex flex-col justify-between items-stretch">
           <button
