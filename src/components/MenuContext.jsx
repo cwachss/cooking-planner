@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 
 const MenuContext = React.createContext();
 
-const MenuProvider = () => {
+const MenuProvider = ({ children }) => {
   const [menus, setMenus] = useState([]);
 
   const MenuContext = {
@@ -11,9 +11,7 @@ const MenuProvider = () => {
   };
 
   return (
-    <MenuContext.Provider value={lectureContext}>
-      {children}
-    </MenuContext.Provider>
+    <MenuContext.Provider {...MenuContext.children}></MenuContext.Provider>
   );
 };
 
