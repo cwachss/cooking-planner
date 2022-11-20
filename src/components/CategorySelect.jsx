@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getRecipe } from "../api/getRecipe";
 
-export const CategorySelect = ({menus}) => {
+export const CategorySelect = (props) => {
   const [edit, setEdit] = useState();
   const [title, setTitle] = useState("");
 
