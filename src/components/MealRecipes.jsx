@@ -20,7 +20,7 @@ export const MealRecipes = ({ menu }) => {
   return (
     <div className="rounded bg-[#54c1cd] p-6">
       <h1>
-        {menu.title} <small>Total time: {totalTime}</small>
+        Friday Night <small>Total time: {totalTime}</small>
       </h1>
       {menu.recipes.map((r, i) => (
         <div

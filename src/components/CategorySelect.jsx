@@ -3,7 +3,7 @@ import { getRecipe } from "../api/getRecipe";
 
 export const CategorySelect = (props) => {
   const [edit, setEdit] = useState();
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState("Friday Night");
 
   const categories = [
     "Appetizer",
