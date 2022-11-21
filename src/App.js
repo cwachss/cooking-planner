@@ -4,7 +4,6 @@ import { SelectSection } from "./components/SelectSection";
 import { MenuSection } from "./components/MenuSection";
 // import { CookingSection } from "./components/CookingSection";
 import { useEffect, useState } from "react";
-import { getRecipe } from "./api/getRecipe";
 import { fakeRecipes } from "./api/fakeRecipes";
 
 function App() {
