@@ -8,8 +8,8 @@ export const MenuSection = ({ menus }) => {
     var t = 0;
     menus.forEach((m) => {
       let mt = 0;
-      m.recipes[0].forEach((r) => {
-        mt += r.cookTime;
+      m.recipes.forEach((r) => {
+        mt += r[0].cookTime;
       });
       t += mt;
     });
