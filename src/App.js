@@ -5,17 +5,11 @@ import { MenuSection } from "./components/MenuSection";
 // import { CookingSection } from "./components/CookingSection";
 import { useEffect, useState } from "react";
 import { getRecipe } from "./api/getRecipe";
+import { fakeRecipes } from "./api/fakeRecipes";
 
 function App() {
-  const [menus, setMenus] = useState([]);
+  const [menus, setMenus] = useState(fakeRecipes);
   const [finalMenu, setFinalMenu] = useState([]);
-
-  useEffect(() => {
-    getRecipe().then((response) => {
-      setMenus(JSON.stringify(response));
-      setFinalMenu([]);
-    });
-  }, []);
 
   useEffect(() => {
     setFinalMenu(menus);
@@ -23,8 +17,8 @@ function App() {
 
   return (
     <div className="App">
-      <SelectSection menus={menus} setMenus={setMenus} setSubmit={setSubmit} />
-      <MenuSection menus={finalMenu} />
+      <SelectSection menus={menus} setMenus={setMenus} />
+      <MenuSection menus={[{ name: "meal1", recipes: menus }]} />
       {/* <CookingSection /> */}
     </div>
   );
