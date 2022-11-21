@@ -6,12 +6,12 @@ export const CategorySelect = (props) => {
   const [title, setTitle] = useState("Friday Night");
 
   const categories = [
-    "Appetizer",
-    "Veggies",
-    "Side",
-    "Meat",
-    "Chicken",
-    "Dessert",
+    "appetizers",
+    "veggies",
+    "sides",
+    "meat",
+    "chicken",
+    "dessert",
   ];
 
   return (

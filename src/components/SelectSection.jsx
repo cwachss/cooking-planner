@@ -6,7 +6,7 @@ export const SelectSection = ({ menus, setMenus }) => {
   const [menuCategories, setCategories] = useState([]);
 
   function submit() {
-    setMenus(menus.filter((menu) => menuCategories.includes(menu.category)));
+    setMenus(menus.filter((menu) => menuCategories.includes(menu[0].category)));
   }
 
   return (
