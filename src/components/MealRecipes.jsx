@@ -5,7 +5,7 @@ export const MealRecipes = ({ menu }) => {
   const [totalTime, setTime] = useState();
   useEffect(() => {
     var t = 0;
-    menu.recipes.forEach((m) => {
+    menu.recipes[0].forEach((m) => {
       t += m.cookTime;
     });
     setTime(getTimeString(t));
@@ -27,9 +27,11 @@ export const MealRecipes = ({ menu }) => {
           key={i}
           className="bg-gray-100 rounded flex items-baseline gap-2 px-4 py-2 my-2"
         >
-          {r.name}{" "}
-          <small className="text-gray-700">{getTimeString(r.cookTime)}</small>
-          <RecipeCard recipe={r}></RecipeCard>
+          {r[0].name}{" "}
+          <small className="text-gray-700">
+            {getTimeString(r[0].cookTime)}
+          </small>
+          <RecipeCard recipe={r[0]}></RecipeCard>
         </div>
       ))}
     </div>

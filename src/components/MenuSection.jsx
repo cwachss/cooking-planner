@@ -7,11 +7,11 @@ export const MenuSection = ({ menus }) => {
   useEffect(() => {
     var t = 0;
     menus.forEach((m) => {
-      let mt = 0
-      m.recipes.forEach((r) => {
+      let mt = 0;
+      m.recipes[0].forEach((r) => {
         mt += r.cookTime;
       });
-      t+=mt
+      t += mt;
     });
     setTime(getTimeString(t));
   }, []);
@@ -24,10 +24,14 @@ export const MenuSection = ({ menus }) => {
 
   return (
     <section className="m-6 p-6">
-      <h2 className="text-2xl">Recipes <small className="text-gray-500">total time: {totalTime}</small></h2>
+      <h2 className="text-2xl">
+        Recipes <small className="text-gray-500">total time: {totalTime}</small>
+      </h2>
 
       <div className="mt-2 flex gap-6">
-        {menus.map((m, i)=><MealRecipes menu={m} key={i}></MealRecipes>)}
+        {menus.map((m, i) => (
+          <MealRecipes menu={m} key={i}></MealRecipes>
+        ))}
       </div>
     </section>
   );
