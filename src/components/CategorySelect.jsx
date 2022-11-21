@@ -52,7 +52,7 @@ export const CategorySelect = (props) => {
                   name=""
                   id=""
                   onChange={() =>
-                    props.setCategories(...props.menuCategories, i)
+                    props.setCategories([...props.menuCategories, i])
                   }
                 />{" "}
                 {i}
